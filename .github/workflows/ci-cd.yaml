@@ -39,7 +39,7 @@ jobs:
           IMAGE_TAG=${{ github.sha }}
 
           echo "Building $IMAGE_ID:$IMAGE_TAG"
-          docker build -t $IMAGE_ID:$IMAGE_TAG .
+          docker build -t $IMAGE_ID:$IMAGE_TAG -t $IMAGE_ID:latest .
           docker push $IMAGE_ID:$IMAGE_TAG
-
+          docker push $IMAGE_ID:latest
           echo "Pushed $IMAGE_ID:$IMAGE_TAG"
